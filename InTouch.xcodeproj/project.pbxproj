@@ -21,6 +21,7 @@
 		3CE8B5BB22DA14CD00274ECB /* FriendDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE8B5BA22DA14CD00274ECB /* FriendDetailViewController.swift */; };
 		3CE8B5BD22E93A9800274ECB /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE8B5BC22E93A9800274ECB /* NoteTableViewCell.swift */; };
 		3CE8B5C122EA15E800274ECB /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE8B5C022EA15E800274ECB /* NotificationViewController.swift */; };
+		3CE8B5C322F32D3000274ECB /* NoteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE8B5C222F32D2F00274ECB /* NoteTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		3CE8B5BA22DA14CD00274ECB /* FriendDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendDetailViewController.swift; sourceTree = "<group>"; };
 		3CE8B5BC22E93A9800274ECB /* NoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
 		3CE8B5C022EA15E800274ECB /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		3CE8B5C222F32D2F00274ECB /* NoteTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 				3CE8B5B822D8EA2600274ECB /* FriendTableViewController.swift */,
 				3CE8B5BA22DA14CD00274ECB /* FriendDetailViewController.swift */,
 				3CE8B5C022EA15E800274ECB /* NotificationViewController.swift */,
+				3CE8B5C222F32D2F00274ECB /* NoteTableViewController.swift */,
 				3CE8B5B622D8E0AE00274ECB /* FriendTableViewCell.swift */,
 				3CE8B5B422D8D5F700274ECB /* Friend.swift */,
 				3CE8B58822D78EA300274ECB /* LaunchScreen.storyboard */,
@@ -282,6 +285,7 @@
 				3CE8B5B722D8E0AF00274ECB /* FriendTableViewCell.swift in Sources */,
 				3CE8B5BD22E93A9800274ECB /* NoteTableViewCell.swift in Sources */,
 				3CE8B58022D78EA100274ECB /* AppDelegate.swift in Sources */,
+				3CE8B5C322F32D3000274ECB /* NoteTableViewController.swift in Sources */,
 				3CE8B5C122EA15E800274ECB /* NotificationViewController.swift in Sources */,
 				3CE8B5B522D8D5F700274ECB /* Friend.swift in Sources */,
 				3CE8B5B922D8EA2700274ECB /* FriendTableViewController.swift in Sources */,
