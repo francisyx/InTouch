@@ -1,5 +1,5 @@
 //
-//  NoteTableViewController.swift
+//  RemindTableViewController.swift
 //  InTouch
 //
 //  Created by Yunfan Xing on 8/1/19.
@@ -9,11 +9,12 @@
 import UIKit
 import UserNotifications
 
-class NoteTableViewController: UITableViewController {
-
+class RemindTableViewController: UITableViewController {
+    var friend: Friend?
     @IBOutlet weak var txtDate: UILabel!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var noteDetail: UITextField!
+    @IBOutlet weak var buttonNotif: UILabel!
     @IBAction
     public func didChangeDate() {
         txtDate.text = DateFormatter.localizedString(from: datePicker.date, dateStyle: .short, timeStyle: .short)
@@ -22,6 +23,7 @@ class NoteTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         didChangeDate()
+        buttonNotif.text=nil
     UNUserNotificationCenter.current().requestAuthorization(options:[.badge, .alert, .sound]) { (granted, error) in
             // Enable or disable features based on authorization.
         
@@ -32,10 +34,23 @@ class NoteTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        //
+        
+        // Set up views if editing an existing Meal.
+        if let friend = friend {
+            navigationItem.title = friend.name
+            //notes.text="test"
+            //photoImageView.image = meal.photo
+            //ratingControl.rating = meal.rating
+        }
+    }
+    
     @IBAction func sendNotification(_ sender: UIButton) {
         print("test1")
         let content = UNMutableNotificationContent()
-        content.title = "Friend Reminder"
+        content.title = friend?.name ?? "" + "'s Reminder"
         content.body = noteDetail.text ?? ""
         content.sound = UNNotificationSound.default
         // Configure the recurring date.
@@ -60,7 +75,9 @@ class NoteTableViewController: UITableViewController {
             }
         }
         print("test2")
+        buttonNotif.text="Redminer Scheduled Successfully"
     }
+}
     // MARK: - Table view data source
     /*
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -128,4 +145,4 @@ class NoteTableViewController: UITableViewController {
     }
     */
 
-}
+
