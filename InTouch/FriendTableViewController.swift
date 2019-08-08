@@ -95,13 +95,16 @@ class FriendTableViewController: UITableViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     
-    override func prepare(for segue:
-        UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue:UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
+     
+      
         switch(segue.identifier ?? "") {
+          
         case "AddItem":
             os_log("Adding a new meal.", log: OSLog.default, type: .debug)
-        case "ShowDetail":
+          
+        case "SegueToFriend":
             guard let friendDetailViewController = segue.destination as? FriendDetailViewController else {
                 fatalError("Unexpected destination: \(segue.destination)")
             }
@@ -113,11 +116,16 @@ class FriendTableViewController: UITableViewController {
             guard let indexPath = tableView.indexPath(for: selectedFriendCell) else {
                 fatalError("The selected cell is not being displayed by the table")
             }
+            
             let selectedFriend = friends[indexPath.row]
+            
+            
             friendDetailViewController.friend = selectedFriend
+       
         default:
             fatalError("Unexpected Segue Identifier; \(segue.identifier)")
         }
+      
     }
     
 
@@ -133,7 +141,7 @@ class FriendTableViewController: UITableViewController {
             fatalError("Unable to instantiate friend1")
         }
         
-        guard let friend2 = Friend(name: "Justine", photo: photo2, rating: 4,occupation: "Banker", relation: "Friend",notes: []) else {
+        guard let friend2 = Friend(name: "Justine", photo: photo2, rating: 4,occupation: "Banker", relation: "Friend",notes: ["test note","test note2","test note3"]) else {
             fatalError("Unable to instantiate friend2")
         }
         
