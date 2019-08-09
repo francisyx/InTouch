@@ -226,7 +226,7 @@
                             <rect key="frame" x="0.0" y="659" width="414" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="0.23912641753136693" green="0.57172845346373058" blue="0.040651509457705987" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                            <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="17"/>
                             <state key="normal" title="Confirm">
                                 <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
@@ -483,14 +483,14 @@
                                     <rect key="frame" x="0.0" y="0.0" width="374" height="199.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6aJ-r6-HCt">
-                                            <rect key="frame" x="8" y="0.0" width="346" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6aJ-r6-HCt">
+                                            <rect key="frame" x="8" y="0.0" width="358" height="21"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WBK-O4-xbx">
-                                            <rect key="frame" x="8" y="29" width="346" height="19"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WBK-O4-xbx">
+                                            <rect key="frame" x="8" y="29" width="358" height="19"/>
                                             <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -498,7 +498,11 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="6aJ-r6-HCt" firstAttribute="top" secondItem="NRY-uV-aZc" secondAttribute="top" id="31X-v0-lVO"/>
+                                        <constraint firstAttribute="trailing" secondItem="WBK-O4-xbx" secondAttribute="trailing" constant="8" id="5mn-ZW-c72"/>
+                                        <constraint firstItem="WBK-O4-xbx" firstAttribute="leading" secondItem="NRY-uV-aZc" secondAttribute="leading" constant="8" id="YRe-jj-232"/>
                                         <constraint firstItem="WBK-O4-xbx" firstAttribute="top" secondItem="6aJ-r6-HCt" secondAttribute="bottom" constant="8" id="eMh-uK-mpL"/>
+                                        <constraint firstItem="6aJ-r6-HCt" firstAttribute="leading" secondItem="NRY-uV-aZc" secondAttribute="leading" constant="8" id="fpj-fg-fkL"/>
+                                        <constraint firstAttribute="trailing" secondItem="6aJ-r6-HCt" secondAttribute="trailing" constant="8" id="rOh-v3-kPn"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -528,18 +532,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DIe-nn-RTL">
-                                <rect key="frame" x="20" y="122" width="374" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" name="quaternaryLabelColor" catalog="System" colorSpace="catalog"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rDj-1Q-QE6">
                                 <rect key="frame" x="0.0" y="379" width="414" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.23912641749999999" green="0.57172845350000001" blue="0.040651509459999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="17"/>
                                 <state key="normal" title="Confirm">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -554,8 +551,20 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DIe-nn-RTL">
+                                <rect key="frame" x="20" y="108" width="374" height="30"/>
+                                <color key="backgroundColor" name="quaternaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="DIe-nn-RTL" firstAttribute="leading" secondItem="5jM-hE-ZYX" secondAttribute="leading" constant="20" id="3vu-gJ-4Lp"/>
+                            <constraint firstItem="DIe-nn-RTL" firstAttribute="top" secondItem="5jM-hE-ZYX" secondAttribute="top" constant="20" id="mBb-l0-atZ"/>
+                            <constraint firstItem="5jM-hE-ZYX" firstAttribute="trailing" secondItem="DIe-nn-RTL" secondAttribute="trailing" constant="20" id="zgQ-wp-sZU"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="5jM-hE-ZYX"/>
                     </view>
                     <connections>

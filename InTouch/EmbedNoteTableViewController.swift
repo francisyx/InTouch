@@ -27,7 +27,6 @@ class EmbedNoteTableViewController: UITableViewController {
     // is a good place to test if data is being passed between view controllers
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.tableView.reloadData()
         //
         
         // Set up views if editing an existing Meal.
@@ -37,6 +36,7 @@ class EmbedNoteTableViewController: UITableViewController {
             //photoImageView.image = meal.photo
             //ratingControl.rating = meal.rating
         }
+        self.tableView.reloadData()
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -63,6 +63,9 @@ class EmbedNoteTableViewController: UITableViewController {
         let noteKey = Array(notes.keys)[indexPath.row]
         cell.notes.text = noteValue
         cell.notesKey.text = noteKey
+        cell.notes.lineBreakMode = .byWordWrapping
+        //cell.notes.preferredMaxLayoutWidth = 330;
+        cell.notes.numberOfLines = 0
         return cell
     }
     

@@ -48,9 +48,14 @@ class RemindTableViewController: UITableViewController {
     }
     
     @IBAction func sendNotification(_ sender: UIButton) {
-        print("test1")
+        //date formatting
+        let dateformatter = DateFormatter()
+        dateformatter.dateFormat = "yyyy/MM/dd hh:mm"
+        let dateformatter2 = DateFormatter()
+        dateformatter2.dateFormat = "MM-dd-hh-mm"
+        //notification
         let content = UNMutableNotificationContent()
-        content.title = friend?.name ?? "" + "'s Reminder"
+        content.title = friend!.name + "'s Reminder"
         content.body = noteDetail.text ?? ""
         content.sound = UNNotificationSound.default
         // Configure the recurring date.
@@ -63,7 +68,7 @@ class RemindTableViewController: UITableViewController {
             dateMatching: dateComponents, repeats: false)
         //let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60, repeats: true)
         // Create the request
-        let uuidString = UUID().uuidString
+        let uuidString = friend!.name + dateformatter2.string(from: Calendar.current.date(from: dateComponents)!)
         let request = UNNotificationRequest(identifier: uuidString,content: content, trigger: trigger)
         
         // Schedule the request with the system.
@@ -74,7 +79,9 @@ class RemindTableViewController: UITableViewController {
                 // Handle any errors.
             }
         }
-        print("test2")
+
+        let now = dateformatter.string(from: NSDate() as Date)
+        friend?.notes[now] = "Set a Reminder: " + uuidString +  "\n" + noteDetail.text!
         buttonNotif.text="Redminer Scheduled Successfully"
     }
 }
