@@ -12,7 +12,7 @@ class EmbedNoteTableViewController: UITableViewController {
     
     //MARK: Properties
     var friend: Friend?
-    var notes = [String]()
+    var notes: [String: String] = [:]
     
     //@IBOutlet weak var notes: UILabel!
     override func viewDidLoad() {
@@ -59,10 +59,10 @@ class EmbedNoteTableViewController: UITableViewController {
         }
         
         // Fetches the appropriate meal for the data source layout.
-        let note = notes[indexPath.row]
-        
-        cell.notes.text = note
-        
+        let noteValue = Array(notes.values)[indexPath.row]
+        let noteKey = Array(notes.keys)[indexPath.row]
+        cell.notes.text = noteValue
+        cell.notesKey.text = noteKey
         return cell
     }
     

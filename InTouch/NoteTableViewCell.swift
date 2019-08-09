@@ -11,6 +11,7 @@ import UIKit
 class NoteTableViewCell: UITableViewCell {
     //MARKS: Properties
     @IBOutlet weak var notes: UILabel!
+    @IBOutlet weak var notesKey: UILabel!
     
     
     

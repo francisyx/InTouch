@@ -58,7 +58,10 @@ class NewNoteViewController: UIViewController {
         else {
             notification.text="notes saved"
             notification.textColor = UIColor.black
-            friend?.notes.append(textNote.text ?? "")
+            let dateformatter = DateFormatter()
+            dateformatter.dateFormat = "yyyy/MM/dd hh:mm"
+            let now = dateformatter.string(from: NSDate() as Date)
+           friend?.notes[now] = textNote.text ?? "" //friend?.notes.append(textNote.text ?? "")
         }
         
     }

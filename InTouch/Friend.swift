@@ -17,11 +17,12 @@ class Friend {
     var relation: String
     var photo: UIImage?
     var rating: Int
-    var notes: Array<String> = Array()
+    //var notes: Array<String> = Array()
+    var notes: [String: String] = [:]
 
     //MARK: Initialization
 
-    init?(name: String, photo: UIImage?, rating: Int, occupation: String, relation: String, notes: Array<String> = Array()) {
+    init?(name: String, photo: UIImage?, rating: Int, occupation: String, relation: String, notes: [String: String] = [:]) {
         
         // Initialization should fail if the name is empty
         guard !name.isEmpty else {

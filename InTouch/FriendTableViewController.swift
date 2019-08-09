@@ -137,18 +137,18 @@ class FriendTableViewController: UITableViewController {
         let photo3 = UIImage(named: "p3")
         let photo4 = UIImage(named: "p4")
         
-        guard let friend1 = Friend(name: "Frank", photo: photo1, rating: 5, occupation: "Doctor", relation: "Uncle",notes: ["I have a note","I have another note","I have third note"]) else {
+        guard let friend1 = Friend(name: "Frank", photo: photo1, rating: 5, occupation: "Doctor", relation: "Uncle",notes: ["2014/08/28 08:32":"I have a note","2014/09/20 09:32":"I have another note","2015/03/11 08:32":"I have third note"]) else {
             fatalError("Unable to instantiate friend1")
         }
         
-        guard let friend2 = Friend(name: "Justine", photo: photo2, rating: 4,occupation: "Banker", relation: "Friend",notes: ["test note","test note2","test note3"]) else {
+        guard let friend2 = Friend(name: "Justine", photo: photo2, rating: 4,occupation: "Banker", relation: "Friend",notes: ["2019/01/01 08:32":"test note","2019/02/05 09:32":"test note2","2019/08/25 10:32":"test note3"]) else {
             fatalError("Unable to instantiate friend2")
         }
         
-        guard let friend3 = Friend(name: "Tom", photo: photo3, rating: 3,occupation: "Student", relation: "Friend",notes: []) else {
+        guard let friend3 = Friend(name: "Tom", photo: photo3, rating: 3,occupation: "Student", relation: "Friend",notes: [:]) else {
             fatalError("Unable to instantiate friend3")
         }
-        guard let friend4 = Friend(name: "Christina", photo: photo4, rating: 3,occupation: "Designer", relation: "Colleague",notes: []) else {
+        guard let friend4 = Friend(name: "Christina", photo: photo4, rating: 3,occupation: "Designer", relation: "Colleague",notes: [:]) else {
             fatalError("Unable to instantiate friend4")
         }
         friends += [friend1, friend2, friend3, friend4]

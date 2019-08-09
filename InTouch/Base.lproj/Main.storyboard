@@ -412,17 +412,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fik-bP-sgH">
-                                <rect key="frame" x="20" y="129" width="374" height="611"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fik-bP-sgH">
+                                <rect key="frame" x="20" y="129" width="374" height="667.5"/>
                                 <connections>
                                     <segue destination="VuR-Ub-WMP" kind="embed" identifier="EmbedNote" id="KvH-jC-kLR"/>
                                 </connections>
                             </containerView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fc2-5p-4TR">
-                                <rect key="frame" x="20" y="748" width="181" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fc2-5p-4TR">
+                                <rect key="frame" x="20" y="804.5" width="186.5" height="37.5"/>
                                 <color key="backgroundColor" red="0.99953407049999998" green="0.98835557699999999" blue="0.47265523669999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Fc2-5p-4TR" secondAttribute="height" multiplier="200:40" id="Wky-Ve-0ag"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="17"/>
                                 <state key="normal" title="Set Reminder">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -431,10 +432,12 @@
                                     <segue destination="EAP-9B-9ch" kind="show" identifier="SetReminder" id="uMz-iW-gpx"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4L6-G4-PLt">
-                                <rect key="frame" x="209" y="748" width="185" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4L6-G4-PLt">
+                                <rect key="frame" x="207.5" y="804.5" width="186.5" height="37.5"/>
                                 <color key="backgroundColor" red="0.23912641749999999" green="0.57172845350000001" blue="0.040651509459999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="4L6-G4-PLt" secondAttribute="height" multiplier="200:40" id="jbv-gW-3W9"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="17"/>
                                 <state key="normal" title="Add Note">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -445,6 +448,18 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Fc2-5p-4TR" firstAttribute="leading" secondItem="7f3-ab-11j" secondAttribute="leading" constant="20" id="Dlz-gz-lLm"/>
+                            <constraint firstItem="Fc2-5p-4TR" firstAttribute="top" secondItem="Fik-bP-sgH" secondAttribute="bottom" constant="8" id="Imk-f8-4iJ"/>
+                            <constraint firstItem="7f3-ab-11j" firstAttribute="trailing" secondItem="Fik-bP-sgH" secondAttribute="trailing" constant="20" id="MLk-a3-Ap9"/>
+                            <constraint firstItem="4L6-G4-PLt" firstAttribute="top" secondItem="Fik-bP-sgH" secondAttribute="bottom" constant="8" id="O2q-Jf-sUS"/>
+                            <constraint firstItem="Fik-bP-sgH" firstAttribute="top" secondItem="7f3-ab-11j" secondAttribute="top" constant="41" id="PLt-Tg-ffo"/>
+                            <constraint firstItem="Fik-bP-sgH" firstAttribute="leading" secondItem="7f3-ab-11j" secondAttribute="leading" constant="20" id="R6g-M9-POl"/>
+                            <constraint firstItem="7f3-ab-11j" firstAttribute="bottom" secondItem="4L6-G4-PLt" secondAttribute="bottom" constant="20" id="RnZ-8g-hc8"/>
+                            <constraint firstItem="7f3-ab-11j" firstAttribute="trailing" secondItem="4L6-G4-PLt" secondAttribute="trailing" constant="20" id="Xmb-CF-niJ"/>
+                            <constraint firstItem="4L6-G4-PLt" firstAttribute="leading" secondItem="Fc2-5p-4TR" secondAttribute="trailing" constant="1" id="nTo-qY-Neq"/>
+                            <constraint firstItem="7f3-ab-11j" firstAttribute="bottom" secondItem="Fc2-5p-4TR" secondAttribute="bottom" constant="20" id="vRO-vC-pls"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="7f3-ab-11j"/>
                     </view>
                 </viewController>
@@ -456,29 +471,39 @@
         <scene sceneID="BXo-qC-w3M">
             <objects>
                 <tableViewController id="VuR-Ub-WMP" customClass="EmbedNoteTableViewController" customModule="InTouch" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="T6X-kD-k0b">
-                        <rect key="frame" x="0.0" y="0.0" width="374" height="611"/>
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="T6X-kD-k0b">
+                        <rect key="frame" x="0.0" y="0.0" width="374" height="667.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NoteTableViewCell" rowHeight="208" id="W4K-xU-lkj" customClass="NoteTableViewCell" customModule="InTouch" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="374" height="208"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NoteTableViewCell" rowHeight="200" id="W4K-xU-lkj" customClass="NoteTableViewCell" customModule="InTouch" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="374" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="W4K-xU-lkj" id="NRY-uV-aZc">
-                                    <rect key="frame" x="0.0" y="0.0" width="374" height="207.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="374" height="199.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WBK-O4-xbx">
-                                            <rect key="frame" x="130" y="11" width="264" height="33"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6aJ-r6-HCt">
+                                            <rect key="frame" x="8" y="0.0" width="346" height="21"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WBK-O4-xbx">
+                                            <rect key="frame" x="8" y="29" width="346" height="19"/>
+                                            <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="6aJ-r6-HCt" firstAttribute="top" secondItem="NRY-uV-aZc" secondAttribute="top" id="31X-v0-lVO"/>
+                                        <constraint firstItem="WBK-O4-xbx" firstAttribute="top" secondItem="6aJ-r6-HCt" secondAttribute="bottom" constant="8" id="eMh-uK-mpL"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="notes" destination="WBK-O4-xbx" id="R1p-vK-Lhx"/>
+                                    <outlet property="notesKey" destination="6aJ-r6-HCt" id="Hdz-T1-jxf"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -493,7 +518,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WGR-oA-tUI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1078" y="786"/>
+            <point key="canvasLocation" x="1076.8115942028987" y="785.49107142857144"/>
         </scene>
         <!--New Note View Controller-->
         <scene sceneID="QB6-Pp-8ei">
