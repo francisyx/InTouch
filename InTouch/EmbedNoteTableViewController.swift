@@ -12,7 +12,8 @@ class EmbedNoteTableViewController: UITableViewController {
     
     //MARK: Properties
     var friend: Friend?
-    var notes: [String: String] = [:]
+    //var notes: [String: String] = [:]
+    var notes: [(key: String, value: String)] = []
     
     //@IBOutlet weak var notes: UILabel!
     override func viewDidLoad() {
@@ -31,7 +32,7 @@ class EmbedNoteTableViewController: UITableViewController {
         
         // Set up views if editing an existing Meal.
         if let friend = friend {
-            notes=friend.notes
+            notes=friend.notes.sorted(by: >)
             //notes.text="test"
             //photoImageView.image = meal.photo
             //ratingControl.rating = meal.rating
@@ -59,8 +60,8 @@ class EmbedNoteTableViewController: UITableViewController {
         }
         
         // Fetches the appropriate meal for the data source layout.
-        let noteValue = Array(notes.values)[indexPath.row]
-        let noteKey = Array(notes.keys)[indexPath.row]
+        let noteValue = notes[indexPath.row].value
+        let noteKey = notes[indexPath.row].key
         cell.notes.text = noteValue
         cell.notesKey.text = noteKey
         cell.notes.lineBreakMode = .byWordWrapping

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C178BDF230B328200059EF2 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C178BDE230B328200059EF2 /* Storage.swift */; };
 		3CE8B58022D78EA100274ECB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE8B57F22D78EA100274ECB /* AppDelegate.swift */; };
 		3CE8B58222D78EA100274ECB /* FriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE8B58122D78EA100274ECB /* FriendViewController.swift */; };
 		3CE8B58522D78EA100274ECB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CE8B58322D78EA100274ECB /* Main.storyboard */; };
@@ -44,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3C178BDE230B328200059EF2 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		3CE8B57C22D78EA100274ECB /* InTouch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InTouch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CE8B57F22D78EA100274ECB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3CE8B58122D78EA100274ECB /* FriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendViewController.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 				3CE8B5C422FA8EF600274ECB /* NewNoteViewController.swift */,
 				3CE8B5BC22E93A9800274ECB /* NoteTableViewCell.swift */,
 				3CE8B5B822D8EA2600274ECB /* FriendTableViewController.swift */,
+				3C178BDE230B328200059EF2 /* Storage.swift */,
 				3CE8B5C622FC8C8E00274ECB /* EmbedNoteTableViewController.swift */,
 				3CE8B5BA22DA14CD00274ECB /* FriendDetailViewController.swift */,
 				3CE8B5C822FC932B00274ECB /* RemindTableViewController.swift */,
@@ -298,6 +301,7 @@
 				3CE8B5BB22DA14CD00274ECB /* FriendDetailViewController.swift in Sources */,
 				3CE8B5C722FC8C8E00274ECB /* EmbedNoteTableViewController.swift in Sources */,
 				3CE8B5C922FC932B00274ECB /* RemindTableViewController.swift in Sources */,
+				3C178BDF230B328200059EF2 /* Storage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

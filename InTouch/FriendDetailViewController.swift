@@ -5,13 +5,14 @@
 //  Created by Yunfan Xing on 7/13/19.
 //  Copyright © 2019 Yunfan Xing. All rights reserved.
 //
-
+import os.log
 import UIKit
 
 class FriendDetailViewController: UIViewController {
  
   //MARK: Properties
   var friend: Friend?
+  var friends = [Friend]()
   var notes = [String]()
   
   //@IBOutlet weak var notes: UILabel!
@@ -26,7 +27,7 @@ class FriendDetailViewController: UIViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     //
-    
+    saveFriends()
     // Set up views if editing an existing Meal.
     if let friend = friend {
       navigationItem.title = friend.name
@@ -92,7 +93,15 @@ class FriendDetailViewController: UIViewController {
             tableView.insertRows(at: [newIndexPath], with: .automatic)
         }
     }*/
-  
+    //MARK: Private Methods
+    private func saveFriends() {
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(friends, toFile: Friend.ArchiveURL.path)
+        if isSuccessfulSave {
+            os_log("Friends successfully saved.", log: OSLog.default, type: .debug)
+        } else {
+            os_log("Failed to save friends...", log: OSLog.default, type: .error)
+        }
+    }
   
   
 }

@@ -17,8 +17,14 @@ class FriendTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Load the sample data.
-        loadSampleFriends()
+        // Load any saved meals, otherwise load sample data.
+        if let savedFriends = loadFriends() {
+            friends += savedFriends
+        }
+        else {
+            // Load the sample data.
+            loadSampleFriends()
+        }
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -118,9 +124,10 @@ class FriendTableViewController: UITableViewController {
             }
             
             let selectedFriend = friends[indexPath.row]
-            
+            let selectedFriends = friends
             
             friendDetailViewController.friend = selectedFriend
+            friendDetailViewController.friends = selectedFriends
        
         default:
             fatalError("Unexpected Segue Identifier; \(segue.identifier)")
@@ -160,6 +167,18 @@ class FriendTableViewController: UITableViewController {
             let newIndexPath = IndexPath(row: friends.count, section: 0)
             friends.append(friend)
             tableView.insertRows(at: [newIndexPath], with: .automatic)
+            saveFriends()
         }
+    }
+    private func saveFriends() {
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(friends, toFile: Friend.ArchiveURL.path)
+        if isSuccessfulSave {
+            os_log("Friends successfully saved.", log: OSLog.default, type: .debug)
+        } else {
+            os_log("Failed to save friends...", log: OSLog.default, type: .error)
+        }
+    }
+    private func loadFriends() -> [Friend]?  {
+        return NSKeyedUnarchiver.unarchiveObject(withFile: Friend.ArchiveURL.path) as? [Friend]
     }
 }
