@@ -5,13 +5,14 @@
 //  Created by Yunfan Xing on 7/13/19.
 //  Copyright © 2019 Yunfan Xing. All rights reserved.
 //
-
+import os.log
 import UIKit
 
 class EmbedNoteTableViewController: UITableViewController {
     
     //MARK: Properties
     var friend: Friend?
+    var friends = [Friend]()
     //var notes: [String: String] = [:]
     var notes: [(key: String, value: String)] = []
     
@@ -69,7 +70,26 @@ class EmbedNoteTableViewController: UITableViewController {
         cell.notes.numberOfLines = 0
         return cell
     }
+/*
+    // Override to support conditional editing of the table view.ß
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        // Return false if you do not want the specified item to be editable.
+        return true
+    }
     
+    
+    // Override to support editing the table view.
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Delete the row from the data source
+            //let noteKey2 = notes[indexPath.row].key
+            //friend!.notes[noteKey2]=nil
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            saveFriends()
+        } else if editingStyle == .insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        }
+    }*/
     /*
      // MARK: - Navigation
      
@@ -88,7 +108,15 @@ class EmbedNoteTableViewController: UITableViewController {
      tableView.insertRows(at: [newIndexPath], with: .automatic)
      }
      }*/
-    
+    //MARK: Private Methods
+    private func saveFriends() {
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(friends, toFile: Friend.ArchiveURL.path)
+        if isSuccessfulSave {
+            os_log("Friends successfully saved.", log: OSLog.default, type: .debug)
+        } else {
+            os_log("Failed to save friends...", log: OSLog.default, type: .error)
+        }
+    }
     
     
 }
