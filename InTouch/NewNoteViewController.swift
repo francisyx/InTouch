@@ -7,11 +7,13 @@
 //
 
 import UIKit
-
+import os.log
 class NewNoteViewController: UIViewController {
 
     //MARK: Properties
     var friend: Friend?
+    var friends = [Friend]()
+    var friendIndex: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,15 +39,9 @@ class NewNoteViewController: UIViewController {
     @IBAction func addNote(_ sender: UIButton) {
         updateSaveButton()
     }
-    /*
+
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     //MARK: Private Methods
     private func updateSaveButton() {
         //function to decide whether to add notes
@@ -59,10 +55,22 @@ class NewNoteViewController: UIViewController {
             notification.text="notes saved"
             notification.textColor = UIColor.black
             let dateformatter = DateFormatter()
-            dateformatter.dateFormat = "yyyy/MM/dd hh:mm"
+            dateformatter.dateFormat = "yyyy/MM/dd hh:mm:ss"
             let now = dateformatter.string(from: NSDate() as Date)
-           friend?.notes[now] = textNote.text ?? "" //friend?.notes.append(textNote.text ?? "")
+            
+           friend?.notes[now] = textNote.text ?? ""
+           friends[friendIndex!]=friend!
+           saveFriends() //friend?.notes.append(textNote.text ?? "")
         }
         
+    }
+    //MARK: Private Methods
+    private func saveFriends() {
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(friends, toFile: Friend.ArchiveURL.path)
+        if isSuccessfulSave {
+            os_log("Friends successfully saved.", log: OSLog.default, type: .debug)
+        } else {
+            os_log("Failed to save friends...", log: OSLog.default, type: .error)
+        }
     }
 }

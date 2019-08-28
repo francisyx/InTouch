@@ -115,11 +115,6 @@
                                     </textField>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ckr-KL-Sh0">
-                                <rect key="frame" x="37" y="790" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                            </button>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="8v4-ih-CVr">
                                 <rect key="frame" x="50" y="232" width="314" height="223"/>
                                 <gestureRecognizers/>
@@ -232,6 +227,7 @@
                             </state>
                             <connections>
                                 <action selector="sendNotification:" destination="EAP-9B-9ch" eventType="touchUpInside" id="5Df-pA-VTc"/>
+                                <segue destination="ELE-wY-jDc" kind="unwind" unwindAction="unwindToFriendListWithSender:" id="oKh-25-6l9"/>
                             </connections>
                         </button>
                         <sections>
@@ -401,6 +397,7 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0UY-hw-P3D" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="ELE-wY-jDc" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-590" y="1003"/>
         </scene>
@@ -542,6 +539,7 @@
                                 </state>
                                 <connections>
                                     <action selector="addNote:" destination="Y9U-SO-nda" eventType="touchUpInside" id="8Nm-xF-xY6"/>
+                                    <segue destination="F35-yb-T4h" kind="unwind" unwindAction="unwindToFriendListWithSender:" id="6Rf-KS-rnH"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OkC-jF-Imc">
@@ -573,6 +571,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="51k-MZ-CXW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="F35-yb-T4h" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1107" y="1385"/>
         </scene>

@@ -5,12 +5,13 @@
 //  Created by Yunfan Xing on 8/1/19.
 //  Copyright © 2019 Yunfan Xing. All rights reserved.
 //
-
+import os.log
 import UIKit
 import UserNotifications
 
 class RemindTableViewController: UITableViewController {
     var friend: Friend?
+    var friends = [Friend]()
     @IBOutlet weak var txtDate: UILabel!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var noteDetail: UITextField!
@@ -50,7 +51,7 @@ class RemindTableViewController: UITableViewController {
     @IBAction func sendNotification(_ sender: UIButton) {
         //date formatting
         let dateformatter = DateFormatter()
-        dateformatter.dateFormat = "yyyy/MM/dd hh:mm"
+        dateformatter.dateFormat = "yyyy/MM/dd hh:mm:ss"
         let dateformatter2 = DateFormatter()
         dateformatter2.dateFormat = "MM-dd-hh-mm"
         //notification
@@ -83,8 +84,18 @@ class RemindTableViewController: UITableViewController {
         let now = dateformatter.string(from: NSDate() as Date)
         friend?.notes[now] = "Set a Reminder: " + uuidString +  "\n" + noteDetail.text!
         buttonNotif.text="Redminer Scheduled Successfully"
+        saveFriends()
     }
-}
+    //MARK: Private Methods
+    private func saveFriends() {
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(friends, toFile: Friend.ArchiveURL.path)
+        if isSuccessfulSave {
+            os_log("Friends successfully saved.", log: OSLog.default, type: .debug)
+        } else {
+            os_log("Failed to save friends...", log: OSLog.default, type: .error)
+        }
+    }
+
     // MARK: - Table view data source
     /*
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -142,14 +153,7 @@ class RemindTableViewController: UITableViewController {
     }
     */
 
-    /*
+
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-
+}

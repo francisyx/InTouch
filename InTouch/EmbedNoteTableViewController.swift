@@ -70,7 +70,7 @@ class EmbedNoteTableViewController: UITableViewController {
         cell.notes.numberOfLines = 0
         return cell
     }
-/*
+
     // Override to support conditional editing of the table view.ß
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
@@ -82,14 +82,15 @@ class EmbedNoteTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            //let noteKey2 = notes[indexPath.row].key
-            //friend!.notes[noteKey2]=nil
+            let noteKey2 = notes[indexPath.row].key
+            friend!.notes[noteKey2]=nil
+            notes.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
             saveFriends()
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }
-    }*/
+    }
     /*
      // MARK: - Navigation
      

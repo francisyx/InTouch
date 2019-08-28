@@ -14,6 +14,7 @@ class FriendDetailViewController: UIViewController {
   var friend: Friend?
   var friends = [Friend]()
   var notes = [String]()
+  var friendIndex: Int!
   
   //@IBOutlet weak var notes: UILabel!
   override func viewDidLoad() {
@@ -21,13 +22,12 @@ class FriendDetailViewController: UIViewController {
     // Handle the text field’s user input through delegate callbacks.
     
   }
-  
+
   // This gets called everytime a view appears (not just when it loads). It
   // is a good place to test if data is being passed between view controllers
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    //
-    saveFriends()
+    
     // Set up views if editing an existing Meal.
     if let friend = friend {
       navigationItem.title = friend.name
@@ -59,12 +59,14 @@ class FriendDetailViewController: UIViewController {
             }
             let selectedFriend = self.friend
             EmbedNoteTableViewController.friend = selectedFriend
+            EmbedNoteTableViewController.friends = self.friends
         case "SetReminder":
             guard let RemindTableViewController = segue.destination as? RemindTableViewController else {
                 fatalError("Unexpected destination: \(segue.destination)")
             }
             let selectedFriend = self.friend
             RemindTableViewController.friend = selectedFriend
+            RemindTableViewController.friends = self.friends
         case "SegueToNewNote":
             guard let NewNoteViewController = segue.destination as? NewNoteViewController else {
                 fatalError("Unexpected destination: \(segue.destination)")
@@ -76,8 +78,9 @@ class FriendDetailViewController: UIViewController {
             
             let selectedFriend = self.friend
             
-            
+            NewNoteViewController.friends = self.friends
             NewNoteViewController.friend = selectedFriend
+            NewNoteViewController.friendIndex = self.friendIndex
             
         default:
             fatalError("Unexpected Segue Identifier; \(segue.identifier)")

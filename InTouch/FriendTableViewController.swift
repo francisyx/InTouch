@@ -126,9 +126,9 @@ class FriendTableViewController: UITableViewController {
             
             let selectedFriend = friends[indexPath.row]
             let selectedFriends = friends
-            
             friendDetailViewController.friend = selectedFriend
             friendDetailViewController.friends = selectedFriends
+            friendDetailViewController.friendIndex = indexPath.row
        
         default:
             fatalError("Unexpected Segue Identifier; \(segue.identifier)")
