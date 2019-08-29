@@ -7,7 +7,7 @@
 //
 import os.log
 import UIKit
-
+import UserNotifications
 class EmbedNoteTableViewController: UITableViewController {
     
     //MARK: Properties
@@ -83,6 +83,13 @@ class EmbedNoteTableViewController: UITableViewController {
         if editingStyle == .delete {
             // Delete the row from the data source
             let noteKey2 = notes[indexPath.row].key
+            let noteContent=friend!.notes[noteKey2];
+            //subroutine to cancel reminder if deleting a reminder from notes
+            if noteContent!.contains("Set a Reminder") {
+                let array=noteContent!.components(separatedBy: "\n");
+                let reminder=array[0].components(separatedBy: "a Reminder: "); UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [reminder[1]])
+                
+            }
             friend!.notes[noteKey2]=nil
             notes.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
