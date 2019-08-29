@@ -17,8 +17,6 @@ class FriendTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Use the edit button item provided by the table view controller.
-        navigationItem.leftBarButtonItem = editButtonItem
         // Load any saved meals, otherwise load sample data.
         if let savedFriends = loadFriends() {
             friends += savedFriends
@@ -56,6 +54,7 @@ class FriendTableViewController: UITableViewController {
         // Configure the cell...
         cell.name.text = friend.name
         cell.photoImageView.image = friend.photo
+        cell.photoImageView.layer.cornerRadius = (cell.photoImageView.frame.size.height)/2; cell.photoImageView.layer.masksToBounds = true
         cell.ratingControl.rating = friend.rating
         cell.occupation.text = friend.occupation
         cell.relation.text = friend.relation

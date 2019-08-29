@@ -14,8 +14,7 @@ class RemindTableViewController: UITableViewController {
     var friends = [Friend]()
     @IBOutlet weak var txtDate: UILabel!
     @IBOutlet weak var datePicker: UIDatePicker!
-    @IBOutlet weak var noteDetail: UITextField!
-    @IBOutlet weak var buttonNotif: UILabel!
+    @IBOutlet weak var noteDetail: UITextView!
     @IBAction
     public func didChangeDate() {
         txtDate.text = DateFormatter.localizedString(from: datePicker.date, dateStyle: .short, timeStyle: .short)
@@ -24,7 +23,6 @@ class RemindTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         didChangeDate()
-        buttonNotif.text=nil
     UNUserNotificationCenter.current().requestAuthorization(options:[.badge, .alert, .sound]) { (granted, error) in
             // Enable or disable features based on authorization.
         
@@ -34,6 +32,9 @@ class RemindTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        self.noteDetail.layer.borderColor = UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 1).cgColor;
+        self.noteDetail.layer.borderWidth = 1.0;
+        self.noteDetail.layer.cornerRadius = 8;
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -46,6 +47,7 @@ class RemindTableViewController: UITableViewController {
             //photoImageView.image = meal.photo
             //ratingControl.rating = meal.rating
         }
+        
     }
     
     @IBAction func sendNotification(_ sender: UIButton) {
@@ -83,7 +85,6 @@ class RemindTableViewController: UITableViewController {
 
         let now = dateformatter.string(from: NSDate() as Date)
         friend?.notes[now] = "Set a Reminder: " + uuidString +  "\n" + noteDetail.text!
-        buttonNotif.text="Redminer Scheduled Successfully"
         saveFriends()
     }
     //MARK: Private Methods

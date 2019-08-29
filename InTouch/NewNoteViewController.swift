@@ -49,7 +49,7 @@ class NewNoteViewController: UIViewController {
     private func updateSaveButton() {
         //function to decide whether to add notes
         let text = textNotes.text ?? ""
-        if text == "input a note" {
+        if text == "" {
             notification.text="Can't save default notes"
             notification.textColor = UIColor.red
             

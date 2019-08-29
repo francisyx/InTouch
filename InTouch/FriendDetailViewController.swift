@@ -87,15 +87,11 @@ class FriendDetailViewController: UIViewController {
         }
         
     }
-    /*
-    @IBAction func unwindToNotes(sender: UIStoryboardSegue) {
-        if let sourceViewController = sender.source as? NewNoteViewController {
-            // Add a new meal.
-            let newIndexPath = IndexPath(row: notes.count, section: 0)
-            notes.append(sourceViewController.textNote.text ?? "")
-            tableView.insertRows(at: [newIndexPath], with: .automatic)
+    @IBAction func unwindToFriendDetails(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.source as? FriendDetailViewController, let friend = sourceViewController.friend {
+            saveFriends()
         }
-    }*/
+    }
     //MARK: Private Methods
     private func saveFriends() {
         let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(friends, toFile: Friend.ArchiveURL.path)
