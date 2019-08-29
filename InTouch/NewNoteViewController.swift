@@ -19,6 +19,9 @@ class NewNoteViewController: UIViewController {
         super.viewDidLoad()
         notification.text = nil
         // Do any additional setup after loading the view.
+        self.textNotes.layer.borderColor = UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 1).cgColor;
+        self.textNotes.layer.borderWidth = 1.0;
+        self.textNotes.layer.cornerRadius = 8;
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -33,8 +36,8 @@ class NewNoteViewController: UIViewController {
         }
     }
     //Property
+    @IBOutlet weak var textNotes: UITextView!
     @IBOutlet weak var notification: UILabel!
-    @IBOutlet weak var textNote: UITextField!
     //adding additional notes
     @IBAction func addNote(_ sender: UIButton) {
         updateSaveButton()
@@ -45,9 +48,9 @@ class NewNoteViewController: UIViewController {
     //MARK: Private Methods
     private func updateSaveButton() {
         //function to decide whether to add notes
-        let text = textNote.text ?? ""
-        if text.isEmpty {
-            notification.text="Can't save empty notes"
+        let text = textNotes.text ?? ""
+        if text == "input a note" {
+            notification.text="Can't save default notes"
             notification.textColor = UIColor.red
             
     }
@@ -58,7 +61,7 @@ class NewNoteViewController: UIViewController {
             dateformatter.dateFormat = "yyyy/MM/dd hh:mm:ss"
             let now = dateformatter.string(from: NSDate() as Date)
             
-           friend?.notes[now] = textNote.text ?? ""
+           friend?.notes[now] = textNotes.text ?? ""
            friends[friendIndex!]=friend!
            saveFriends() //friend?.notes.append(textNote.text ?? "")
         }
